@@ -15,12 +15,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table
+@Table(name = "users")
 public class User {
   
   @Id
   @GeneratedValue(strategy=GenerationType.IDENTITY)
   private int id;
+  @Column(unique = true, length = 50, nullable = false)
   private String username;
   private String password;
   private String role;

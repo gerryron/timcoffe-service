@@ -16,15 +16,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Products")
-public class Product {
-  
+@Table(name = "Order_details")
+public class OrderDetail {
+
   @Id
-  @GeneratedValue(strategy=GenerationType.IDENTITY)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
-  private String name;
-  private String image;
+  private String productName;
   private BigDecimal price;
-  private String description;
 
 }

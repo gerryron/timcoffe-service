@@ -23,7 +23,7 @@ public class UserService {
   private UserRepository userRepository;
 
   public ResponseEntity<User> login (String username, String password) {
-    User user = userRepository.findUserByUsername(username);
+    User user = userRepository.findUserByNomerHpOrEmail(username);
     if (user == null) {
       return ResponseEntity.status(HttpStatus.NOT_FOUND)
                             .contentType(MediaType.APPLICATION_JSON)
@@ -67,7 +67,7 @@ public class UserService {
   }
 
   public ResponseEntity<User> findUserByUsername(String username) {
-    User user = userRepository.findUserByUsername(username);
+    User user = userRepository.findUserByNomerHpOrEmail(username);
     if (user == null) {
       return ResponseEntity.status(HttpStatus.NOT_FOUND)
                         .contentType(MediaType.APPLICATION_JSON)

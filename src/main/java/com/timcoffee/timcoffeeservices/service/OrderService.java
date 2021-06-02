@@ -38,6 +38,7 @@ public class OrderService {
     Timestamp start = new Timestamp(date.getTime());  
     Timestamp end = new Timestamp(date.getTime() + 1 * 24 * 60 * 60 * 1000 );
     List<Order> order = orderRepository.getTotalOrderToday(start, end);
+    return order.size();
   }
 
   public Order updateOrderStatusById(int id, Short status) {

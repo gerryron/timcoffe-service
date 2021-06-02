@@ -32,6 +32,16 @@ public class OrderController {
     return orderService.getAllOrderQueue();
   }
 
+  @GetMapping("/getAllOrderQueue/{phoneNumber}")
+  public List<Order> getAllOrderByPhoneNumber(@PathVariable String phoneNumber) {
+    return orderService.getAllOrderByPhoneNumber(phoneNumber);
+  }
+
+  @GetMapping("/getAllOrderQueue")
+  public int getTotalOrderToday() {
+    return orderService.getTotalOrderToday();
+  }
+
   @PutMapping("/updateStatus/{id}")
   public Order updateOrder(@PathVariable int id, @RequestBody ObjectNode objectNode) {
     Short status = Short.valueOf(objectNode.get("status").asText());

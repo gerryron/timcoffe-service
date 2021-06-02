@@ -18,8 +18,8 @@ public class ProductService {
   @Autowired
   private ProductRepository productRepository;
 
-  public void addProduct(Product product) {
-    productRepository.save(product);
+  public Product addProduct(Product product) {
+    return productRepository.save(product);
   }
 
   public List<Product> getAllProduct() {
@@ -39,9 +39,9 @@ public class ProductService {
                             .body(product.get());
   }
 
-  public void updateProduct(int id, Product product) {
+  public Product updateProduct(int id, Product product) {
     product.setId(id);
-    productRepository.save(product);
+    return productRepository.save(product);
   }
 
   public void deleteProduct(int id) {

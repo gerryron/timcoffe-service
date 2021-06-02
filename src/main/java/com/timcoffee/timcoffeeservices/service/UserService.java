@@ -46,6 +46,9 @@ public class UserService {
   public ResponseEntity<User> register(User user) {
     try {
       String encodedPassword = this.passwordEncoder.encode(user.getPassword());
+      if (user.getRole() == null) {
+        user.setRole("user");
+      }
       user.setPassword(encodedPassword);
       User response = userRepository.save(user);
       return ResponseEntity.status(HttpStatus.CREATED)

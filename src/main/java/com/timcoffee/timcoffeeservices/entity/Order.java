@@ -28,6 +28,7 @@ public class Order {
   private int id;
   private String nama;
   private String nomerHp;
+  private Short status;
   private Timestamp orderDate;
   private Timestamp pickupDate;
   private String note;

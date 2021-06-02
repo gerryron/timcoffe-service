@@ -1,6 +1,7 @@
 package com.timcoffee.timcoffeeservices.service;
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 import com.timcoffee.timcoffeeservices.entity.Order;
@@ -26,6 +27,17 @@ public class OrderService {
 
   public List<Order> getAllOrderQueue() {
     return orderRepository.findAllOrderQueue();
+  }
+
+  public List<Order> getAllOrderByPhoneNumber(String phoneNumber) {
+    return orderRepository.findAllOrderByPhoneNumber(phoneNumber);
+  }
+
+  public int getTotalOrderToday() {
+    Date date = new Date();  
+    Timestamp start = new Timestamp(date.getTime());  
+    Timestamp end = new Timestamp(date.getTime() + 1 * 24 * 60 * 60 * 1000 );
+    List<Order> order = orderRepository.getTotalOrderToday(start, end);
   }
 
   public Order updateOrderStatusById(int id, Short status) {

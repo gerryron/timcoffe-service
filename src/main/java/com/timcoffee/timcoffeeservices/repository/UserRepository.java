@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
 
-  @Query("SELECT u FROM User u WHERE u.nomerHp = :code OR u.email = :code")
+  @Query("FROM com.timcoffee.timcoffeeservices.entity.User u WHERE u.nomerHp = :code OR u.email = :code")
   public User findUserByNomerHpOrEmail(@PathParam("code") String code);
   
 }

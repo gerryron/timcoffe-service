@@ -32,12 +32,12 @@ public class OrderController {
     return orderService.getAllOrderQueue();
   }
 
-  @GetMapping("/getAllOrderQueue/{phoneNumber}")
+  @GetMapping("/getOrderQueue/{phoneNumber}")
   public List<Order> getAllOrderByPhoneNumber(@PathVariable String phoneNumber) {
     return orderService.getAllOrderByPhoneNumber(phoneNumber);
   }
 
-  @GetMapping("/getAllOrderQueue")
+  @GetMapping("/getTotalOrderToday")
   public int getTotalOrderToday() {
     return orderService.getTotalOrderToday();
   }
